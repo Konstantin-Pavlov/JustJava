@@ -17,42 +17,26 @@
             android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textCapWords" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="toppings"
-            android:textAllCaps="true" />
+            style="@style/HeaderTextStyle"
+            android:text="@string/toppings"/>
 
         <CheckBox
             android:id="@+id/Whipped_cream_checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:text="Whipped cream"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16dp" />
+            style="@style/CheckBoxStyle"
+            android:text="@string/Whipped_cream"/>
 
         <CheckBox
             android:id="@+id/Chocolate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="24dp"
-            android:text="Chocolate"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textSize="16dp" />
+            style="@style/CheckBoxStyle"
+            android:text="@string/Chocolate"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:text="quantity"
-            android:textAllCaps="true" />
+            android:text="@string/quantity"
+            style="@style/HeaderTextStyle"/>
 
 
         <LinearLayout
@@ -91,11 +75,8 @@
 
         <TextView
             android:id="@+id/qu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="order summary"
-            android:textAllCaps="true"
+            android:text="@string/order_summary"
+            style="@style/HeaderTextStyle"
             android:textColor="@android:color/black"
             android:textSize="16sp" />
 
@@ -114,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:onClick="submitOrder"
-            android:text="order" />
+            android:text="@string/order" />
 
     </LinearLayout>
 </ScrollView>

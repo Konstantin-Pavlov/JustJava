@@ -16,18 +16,27 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     //int numberOfCoffees = 3;
     // 0 < quantity < 100
     int quantity = 1, price = 5;
     Toast toast;
+    String mailto, emailsubj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mailto = getString(R.string.mailto);
+        emailsubj = getString(R.string.emailSubject);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
+
     /**
      * This method is called when the plus button is clicked.
      */
@@ -42,9 +51,13 @@ public class MainActivity extends AppCompatActivity {
             }
             // Show an error message as a toast
             Context context = getApplicationContext();
-            CharSequence text = "you can't order more than one hundred cups of coffee";
+            //CharSequence text = "you can't order more than one hundred cups of coffee";
+            CharSequence text = getString(R.string.A_Lot_Of_Coffee);
+            //int duration = setDuration (1);
+            //void setDuration();
+
             int duration = Toast.LENGTH_SHORT;
-            toast = Toast.makeText(context, text, duration);
+            toast = Toast.makeText(context, text,duration );
             toast.show();
             //toast.cancel();  // solves UX problem is when the user hits "-" or "+" too many times. It makes the toast show up for longer than it "should"
 
@@ -71,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
 
             // Show an error message as a toast
             Context context = getApplicationContext();
-            CharSequence text = "you can't order less than one cup of coffee";
+            //CharSequence text = "you can't order less than one cup of coffee";
+            CharSequence text = getString(R.string.too_few_coffee);
             int duration = Toast.LENGTH_SHORT;
             toast = Toast.makeText(context, text, duration);
             toast.show();
@@ -114,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
         //displayMessage(createOrderSummary(name, price, hasWhippedCream, hasChocolate )); // Display the order summary on the screen
         displayMessage(OrderInfo); // Display the order summary on the screen
 
+
+
         //open mail
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
@@ -123,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+
 
         /*
         //open maps
@@ -145,9 +162,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(String name, int price, boolean addWhippedCream, boolean addChocolate){
         //String name = "Kaptain Kunal";
-        String message = "Name: " + name +  "\nAdd Whipped Cream? " + addWhippedCream
-                + "\nAdd chocolate? " + addChocolate
-                + "\nQuantity: " + Math.abs(quantity) + "\nTotal: " + price + "\nThank you!";
+        String message = getString(R.string.nameInTotal) + name +  getString(R.string.addCream) + addWhippedCream
+                + getString(R.string.addChoco) + addChocolate
+                + getString(R.string.quantityInTotal) + Math.abs(quantity) + getString(R.string.total) + price + getString(R.string.thx);
         return message;
     }
 
@@ -187,7 +204,9 @@ public class MainActivity extends AppCompatActivity {
     */
 /**
  * This method displays the given price on the screen.
- *//*
+ */
+
+/*
 
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
